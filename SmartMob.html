@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Mob — Motoristas conectados, rodovias inteligentes</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #111827;
+            background-image: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(250, 204, 21, 0.2);
+        }
+        .feature-card {
+             transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: scale(1.05);
+            border-color: #facc15; /* yellow-400 */
+        }
+        /* Estilo para o loader */
+        .loader {
+            border: 4px solid #374151; /* gray-700 */
+            border-top: 4px solid #facc15; /* yellow-400 */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Animação de fade-in para resultados */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Estilo para o input de imagem */
+        .file-input-label {
+            cursor: pointer;
+        }
+        .file-input-label:hover {
+            background-color: #4b5563; /* gray-600 */
+        }
+        /* Estilos do Chat */
+        .chat-container {
+            height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <!-- Logo SVG -->
+                <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h1 class="text-2xl font-bold text-white">Smart Mob</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-gray-300 font-medium">
+                <a href="#sobre" class="hover:text-yellow-400 transition-colors">Sobre</a>
+                <a href="#funcionalidades" class="hover:text-yellow-400 transition-colors">Funcionalidades</a>
+                <a href="#ferramentas-ia" class="hover:text-yellow-400 transition-colors">Ferramentas IA</a>
+                <a href="#faq" class="hover:text-yellow-400 transition-colors">FAQ</a>
+            </nav>
+            <a href="#cta-final" class="hidden md:inline-block bg-yellow-400 text-black font-semibold px-5 py-2 rounded-lg hover:bg-yellow-500 cta-button">
+                Quero Testar
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Página Inicial (Hero Section) -->
+        <section id="home" class="hero-bg">
+            <div class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+                        Motoristas conectados, rodovias inteligentes.
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-8">
+                        A rede social rodoviária com GPS inteligente que transforma sua viagem.
+                    </p>
+                    <a href="#cta-final" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button inline-block">
+                        Quero experimentar
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://placehold.co/450x550/374151/FFFFFF?text=App+Mockup" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/450x550/374151/FFFFFF?text=Erro+ao+carregar+imagem';"
+                         alt="Mockup do aplicativo Smart Mob em um celular mostrando mapa e feed de postagens" 
+                         class="rounded-2xl shadow-2xl w-full max-w-sm">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sobre o Smart Mob -->
+        <section id="sobre" class="py-20 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold text-white mb-4">O que é o Smart Mob?</h3>
+                <p class="max-w-3xl mx-auto text-gray-400 text-lg">
+                    O Smart Mob é um sistema de navegação inteligente com GPS em tempo real e um feed colaborativo estilo rede social, onde motoristas podem compartilhar alertas, fotos e vídeos sobre as condições das rodovias, criando uma comunidade que se ajuda mutuamente.
+                </p>
+            </div>
+        </section>
+        
+        <!-- 3. Funcionalidades -->
+        <section id="funcionalidades" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white">Funcionalidades Principais</h3>
+                    <p class="text-gray-400 mt-2">Tudo o que você precisa para uma viagem mais segura e eficiente.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Cards de funcionalidades -->
+                    <div class="bg-gray-800 p-8 rounded-xl feature-card text-center border border-gray-700">
+                        <div class="bg-gray-700 text-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2">GPS Dinâmico</h4>
+                        <p class="text-gray-400">Recalcula rotas em tempo real para desviar de imprevistos.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl feature-card text-center border border-gray-700">
+                        <div class="bg-gray-700 text-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Feed Interativo</h4>
+                        <p class="text-gray-400">Veja e compartilhe alertas de trânsito com a comunidade.</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl feature-card text-center border border-gray-700">
+                        <div class="bg-gray-700 text-yellow-400 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h4 class="text-xl font-semibold text-white mb-2">Alertas Inteligentes</h4>
+                        <p class="text-gray-400">Receba avisos de acidentes, obras e congestionamentos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATUALIZADO: Ferramentas com IA -->
+        <section id="ferramentas-ia" class="py-20 bg-black">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold text-white mb-4">✨ Ferramentas com IA Gemini</h3>
+                <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                    Veja o poder da inteligência artificial para aprimorar sua experiência na estrada.
+                </p>
+
+                <!-- Abas de Navegação -->
+                <div class="border-b border-gray-700 mb-8">
+                    <nav class="-mb-px flex flex-wrap justify-center sm:space-x-8" aria-label="Tabs">
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-yellow-400 text-yellow-400" data-target="roteiro-ia-content">
+                            Roteiro Inteligente
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500" data-target="alerta-ia-content">
+                            Gerador de Alerta
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500" data-target="calculadora-rota-content">
+                            Calculadora de Rota
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500" data-target="seguranca-veiculo-content">
+                            Verificador de Segurança
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500" data-target="imagem-ia-content">
+                            Analisador de Imagem
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500" data-target="chat-ia-content">
+                           Assistente de Viagem
+                        </button>
+                        <button class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-500" data-target="eventos-rota-content">
+                           Eventos na Rota
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Conteúdo das Abas -->
+                <div>
+                    <!-- Conteúdo Roteiro Inteligente -->
+                    <div id="roteiro-ia-content" class="tab-content">
+                        <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Diga seu destino e nossa IA criará um roteiro com paradas incríveis no caminho.
+                        </p>
+                        <div class="max-w-xl mx-auto">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <input id="destination-input" type="text" placeholder="Ex: Florianópolis, SC" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                <button id="generate-route-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap">
+                                    Gerar Roteiro
+                                </button>
+                            </div>
+                        </div>
+                        <div id="roteiro-results" class="mt-12 text-left max-w-3xl mx-auto">
+                            <div id="loader-roteiro" class="hidden mx-auto loader"></div>
+                        </div>
+                        <div id="tts-controls" class="mt-6 hidden">
+                            <button id="play-tts-btn" class="bg-gray-700 text-yellow-400 font-bold px-6 py-3 rounded-lg hover:bg-gray-600 cta-button inline-flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.858 8.464a5 5 0 000 7.072m2.828 9.9a9 9 0 000-12.728M12 12h.01" /></svg>
+                                Ouvir Roteiro
+                            </button>
+                            <div id="loader-tts" class="hidden mx-auto loader mt-4"></div>
+                        </div>
+                        <p id="ia-disclaimer" class="text-xs text-gray-500 mt-4 max-w-3xl mx-auto hidden">Sugestões geradas por IA. Verifique as informações antes de viajar.</p>
+                    </div>
+
+                    <!-- Conteúdo Gerador de Alerta -->
+                    <div id="alerta-ia-content" class="tab-content hidden">
+                         <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Transforme uma informação simples em um post útil e criativo para a comunidade Smart Mob.
+                        </p>
+                        <div class="max-w-xl mx-auto">
+                            <div class="flex flex-col gap-4">
+                                <input id="alert-input" type="text" placeholder="Ex: Congestionamento na BR-101 km 210" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                <select id="alert-tone" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                    <option value="Informativo">Tom: Informativo</option>
+                                    <option value="Engraçado">Tom: Engraçado</option>
+                                    <option value="Urgente">Tom: Urgente</option>
+                                </select>
+                                <button id="generate-alert-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap">
+                                    Gerar Alerta Criativo
+                                </button>
+                            </div>
+                        </div>
+                        <div id="alerta-results" class="mt-12 text-left max-w-3xl mx-auto">
+                            <div id="loader-alerta" class="hidden mx-auto loader"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Conteúdo Calculadora de Rota -->
+                    <div id="calculadora-rota-content" class="tab-content hidden">
+                         <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Simule um GPS e calcule a rota mais eficiente entre dois pontos com a ajuda da IA.
+                        </p>
+                        <div class="max-w-xl mx-auto">
+                            <div class="flex flex-col gap-4">
+                                <div class="relative">
+                                    <input id="start-input" type="text" placeholder="Seu local de partida" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 pr-12">
+                                    <button id="get-location-btn" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-400 hover:text-yellow-400" title="Usar minha localização atual">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </button>
+                                </div>
+                                <input id="end-input" type="text" placeholder="Seu destino" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                <button id="calculate-route-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap">
+                                    Calcular Rota Eficiente
+                                </button>
+                            </div>
+                        </div>
+                        <div id="rota-results" class="mt-12 text-left max-w-3xl mx-auto">
+                            <div id="loader-rota" class="hidden mx-auto loader"></div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Verificador de Segurança -->
+                    <div id="seguranca-veiculo-content" class="tab-content hidden">
+                         <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Descreva um problema no seu carro e receba um diagnóstico preliminar da nossa IA mecânica.
+                        </p>
+                        <div class="max-w-xl mx-auto">
+                            <div class="flex flex-col gap-4">
+                                <textarea id="vehicle-problem-input" placeholder="Ex: Meu carro está fazendo um barulho de assobio ao acelerar." class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400" rows="3"></textarea>
+                                <button id="check-vehicle-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap">
+                                    Verificar Problema
+                                </button>
+                            </div>
+                        </div>
+                        <div id="vehicle-results" class="mt-12 text-left max-w-3xl mx-auto">
+                            <div id="loader-vehicle" class="hidden mx-auto loader"></div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Analisador de Imagem -->
+                    <div id="imagem-ia-content" class="tab-content hidden">
+                         <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Envie uma foto e a IA a analisará para você.
+                        </p>
+                        <div class="max-w-xl mx-auto">
+                            <div class="flex flex-col gap-4 items-center">
+                                <label for="image-input" class="w-full p-4 rounded-lg bg-gray-800 border-2 border-dashed border-gray-600 text-gray-400 text-center file-input-label transition">
+                                    <span id="image-input-text">Clique para escolher uma imagem</span>
+                                </label>
+                                <input id="image-input" type="file" class="hidden" accept="image/*">
+                                <button id="analyze-image-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap w-full sm:w-auto" disabled>
+                                    Analisar Imagem
+                                </button>
+                            </div>
+                        </div>
+                        <div id="image-results" class="mt-12 text-left max-w-3xl mx-auto">
+                            <div id="loader-image" class="hidden mx-auto loader"></div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Chat Assistente -->
+                    <div id="chat-ia-content" class="tab-content hidden">
+                         <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Converse com nosso assistente para tirar dúvidas e pedir dicas.
+                        </p>
+                        <div class="max-w-2xl mx-auto bg-gray-800 rounded-lg border border-gray-700">
+                            <div id="chat-window" class="p-4 chat-container flex flex-col gap-4">
+                                <!-- Mensagens do chat aparecerão aqui -->
+                                <div class="flex justify-start">
+                                    <div class="bg-gray-700 text-white p-3 rounded-lg max-w-xs">
+                                        Olá! Sou o assistente do Smart Mob. Como posso ajudar?
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 border-t border-gray-700 flex gap-4">
+                                <input id="chat-input" type="text" placeholder="Digite sua mensagem..." class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                <button id="send-chat-btn" class="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 cta-button">
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo Verificador de Eventos -->
+                    <div id="eventos-rota-content" class="tab-content hidden">
+                         <p class="max-w-2xl mx-auto text-gray-400 mb-8">
+                           Verifique notícias e eventos recentes na sua rota antes de sair de casa.
+                        </p>
+                        <div class="max-w-xl mx-auto">
+                            <div class="flex flex-col gap-4">
+                                <input id="event-start-input" type="text" placeholder="Local de partida" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                <input id="event-end-input" type="text" placeholder="Destino" class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                                <button id="check-events-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap">
+                                    Verificar Eventos na Rota
+                                </button>
+                            </div>
+                        </div>
+                        <div id="event-results" class="mt-12 text-left max-w-3xl mx-auto">
+                            <div id="loader-event" class="hidden mx-auto loader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Depoimentos -->
+        <section id="depoimentos" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white">O que os motoristas dizem</h3>
+                    <p class="text-gray-400 mt-2">A confiança de quem está na estrada todos os dias.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testemunho 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-sm">
+                        <p class="text-gray-300 mb-6 italic">"O Smart Mob mudou a forma como planejo minhas rotas. Os alertas em tempo real da comunidade são incrivelmente precisos!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/FFFFFF?text=C" alt="Foto de Carlos S.">
+                            <div>
+                                <p class="font-semibold text-white">Carlos S.</p>
+                                <p class="text-gray-400 text-sm">Motorista de Caminhão</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testemunho 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-sm">
+                        <p class="text-gray-300 mb-6 italic">"Finalmente um app que me ajuda a evitar o trânsito do dia a dia. A comunidade é muito ativa e prestativa. Recomendo!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/FFFFFF?text=J" alt="Foto de Juliana M.">
+                            <div>
+                                <p class="font-semibold text-white">Juliana M.</p>
+                                <p class="text-gray-400 text-sm">Analista de Sistemas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testemunho 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-sm">
+                        <p class="text-gray-300 mb-6 italic">"Uso para viajar com a família. Saber das condições da estrada com antecedência me dá muito mais segurança."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/FFFFFF?text=R" alt="Foto de Ricardo F.">
+                            <div>
+                                <p class="font-semibold text-white">Ricardo F.</p>
+                                <p class="text-gray-400 text-sm">Engenheiro Civil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white">Perguntas Frequentes</h3>
+                    <p class="text-gray-400 mt-2">Tirando suas principais dúvidas sobre o Smart Mob.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- Item FAQ 1 -->
+                    <div class="bg-gray-800 rounded-lg border border-gray-700">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-white hover:bg-gray-700">
+                            <span>O Smart Mob será gratuito?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-400">Sim! As funcionalidades principais do Smart Mob, como navegação por GPS e participação no feed colaborativo, serão sempre gratuitas para os motoristas.</p>
+                        </div>
+                    </div>
+                    <!-- Item FAQ 2 -->
+                    <div class="bg-gray-800 rounded-lg border border-gray-700">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-white hover:bg-gray-700">
+                            <span>Quando o aplicativo estará disponível?</span>
+                            <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-400">Estamos na fase final de desenvolvimento. Ao se cadastrar no programa piloto, você será um dos primeiros a ser notificado sobre o lançamento oficial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chamada para Ação (CTA final) -->
+        <section id="cta-final" class="bg-yellow-400 text-black">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Quer ser um dos primeiros a testar o Smart Mob?</h3>
+                <p class="text-gray-800 text-lg mb-8">Junte-se ao nosso programa piloto e ajude a construir o futuro da mobilidade rodoviária.</p>
+                <a href="#" class="bg-black text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-800 cta-button inline-block">
+                    Cadastre-se para o piloto
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-black text-gray-400">
+        <div class="container mx-auto px-6 py-10">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0">
+                    <h4 class="text-xl font-bold text-white">Smart Mob</h4>
+                    <p class="text-sm">Conectando motoristas, otimizando rotas.</p>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="hover:text-yellow-400">Sobre</a>
+                    <a href="#" class="hover:text-yellow-400">Contato</a>
+                    <a href="#" class="hover:text-yellow-400">Políticas de Privacidade</a>
+                </div>
+                <div class="flex space-x-4">
+                    <!-- Ícones Sociais -->
+                    <a href="#" class="hover:text-yellow-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                    <a href="#" class="hover:text-yellow-400"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
+                <p>&copy; 2025 SmartFeed. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <audio id="audio-player" class="hidden"></audio>
+
+    <!-- Scripts -->
+    <script type="module">
+        // Import Firebase services
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
+
+        // Variáveis globais
+        let currentItineraryText = '';
+        let chatHistory = [];
+        let isAuthReady = false;
+
+        // --- CHECKLIST DE CONFIGURAÇÃO PARA TESTE LOCAL ---
+        // 1. Chave da API Gemini: Obtenha no Google AI Studio e cole abaixo.
+        // 2. Configuração do Firebase: Crie um projeto no Firebase, ative Authentication, Firestore e Storage.
+        //    Vá em "Configurações do Projeto" e copie o objeto de configuração.
+        // 3. Regras do Firebase:
+        //    - Firestore: Permita leitura e escrita para usuários autenticados na coleção correta.
+        //    - Storage: Permita leitura e escrita para usuários autenticados no caminho de imagens.
+        //    (Exemplos de regras estão nos comentários do código da galeria e do upload de imagem).
+        // 4. Ative as APIs no Google Cloud: No seu projeto, ative "Generative Language API" e "Identity Toolkit API" (para o Auth).
+        // 5. Faturamento: Associe uma conta de faturamento ao seu projeto no Google Cloud (há um nível gratuito generoso).
+
+        const GEMINI_API_KEY = "AIzaSyB61n_-BSNpavD9sMxxJTVtFfB4VhvGs4Q"; // COLE SUA CHAVE DA API DO GOOGLE AI STUDIO AQUI
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            // COLE AQUI A CONFIGURAÇÃO DO SEU PROJETO FIREBASE
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // Inicializa o Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+        let userId = null;
+
+
+        // Script para FAQ e Abas de IA
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica do FAQ
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const arrow = question.querySelector('.faq-arrow');
+                    const isOpening = !answer.style.maxHeight;
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.maxHeight = null;
+                        ans.previousElementSibling.querySelector('.faq-arrow').classList.remove('rotate-180');
+                    });
+                    if (isOpening) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        arrow.classList.add('rotate-180');
+                    }
+                });
+            });
+
+            // Lógica das Abas
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-yellow-400', 'text-yellow-400');
+                        btn.classList.add('border-transparent', 'text-gray-400', 'hover:text-gray-200', 'hover:border-gray-500');
+                    });
+                    button.classList.add('border-yellow-400', 'text-yellow-400');
+                    button.classList.remove('border-transparent', 'text-gray-400');
+                    
+                    tabContents.forEach(content => content.classList.add('hidden'));
+                    document.getElementById(button.dataset.target).classList.remove('hidden');
+                });
+            });
+
+            // --- Lógica da API Gemini ---
+
+            // Elementos do Roteiro Inteligente
+            const generateRouteBtn = document.getElementById('generate-route-btn');
+            const destinationInput = document.getElementById('destination-input');
+            const roteiroResultsDiv = document.getElementById('roteiro-results');
+            const loaderRoteiro = document.getElementById('loader-roteiro');
+            const disclaimer = document.getElementById('ia-disclaimer');
+            const ttsControls = document.getElementById('tts-controls');
+            const playTtsBtn = document.getElementById('play-tts-btn');
+            const loaderTts = document.getElementById('loader-tts');
+            const audioPlayer = document.getElementById('audio-player');
+
+            // Elementos do Gerador de Alerta
+            const generateAlertBtn = document.getElementById('generate-alert-btn');
+            const alertInput = document.getElementById('alert-input');
+            const alertToneSelect = document.getElementById('alert-tone');
+            const alertaResultsDiv = document.getElementById('alerta-results');
+            const loaderAlerta = document.getElementById('loader-alerta');
+
+            // Elementos da Calculadora de Rota
+            const calculateRouteBtn = document.getElementById('calculate-route-btn');
+            const startInput = document.getElementById('start-input');
+            const endInput = document.getElementById('end-input');
+            const rotaResultsDiv = document.getElementById('rota-results');
+            const loaderRota = document.getElementById('loader-rota');
+            const getLocationBtn = document.getElementById('get-location-btn');
+
+            // Elementos do Verificador de Segurança
+            const checkVehicleBtn = document.getElementById('check-vehicle-btn');
+            const vehicleProblemInput = document.getElementById('vehicle-problem-input');
+            const vehicleResultsDiv = document.getElementById('vehicle-results');
+            const loaderVehicle = document.getElementById('loader-vehicle');
+
+            // Elementos do Analisador de Imagem
+            const analyzeImageBtn = document.getElementById('analyze-image-btn');
+            const imageInput = document.getElementById('image-input');
+            const imageInputText = document.getElementById('image-input-text');
+            const imageResultsDiv = document.getElementById('image-results');
+            const loaderImage = document.getElementById('loader-image');
+
+            // Elementos do Chat Assistente
+            const sendChatBtn = document.getElementById('send-chat-btn');
+            const chatInput = document.getElementById('chat-input');
+            const chatWindow = document.getElementById('chat-window');
+
+            // Elementos do Verificador de Eventos
+            const checkEventsBtn = document.getElementById('check-events-btn');
+            const eventStartInput = document.getElementById('event-start-input');
+            const eventEndInput = document.getElementById('event-end-input');
+            const eventResultsDiv = document.getElementById('event-results');
+            const loaderEvent = document.getElementById('loader-event');
+
+            // Elementos da Galeria
+            const galleryContainer = document.getElementById('gallery-container');
+
+
+            // Event Listeners
+            generateRouteBtn.addEventListener('click', handleGenerateRoute);
+            destinationInput.addEventListener('keyup', (e) => e.key === 'Enter' && handleGenerateRoute());
+            generateAlertBtn.addEventListener('click', handleGenerateAlert);
+            alertInput.addEventListener('keyup', (e) => e.key === 'Enter' && handleGenerateAlert());
+            playTtsBtn.addEventListener('click', handlePlayTTS);
+            calculateRouteBtn.addEventListener('click', handleCalculateRoute);
+            getLocationBtn.addEventListener('click', handleGetLocation);
+            checkVehicleBtn.addEventListener('click', handleVehicleCheck);
+            imageInput.addEventListener('change', handleImageSelection);
+            analyzeImageBtn.addEventListener('click', handleImageAnalysis);
+            sendChatBtn.addEventListener('click', handleChatSubmit);
+            chatInput.addEventListener('keyup', (e) => e.key === 'Enter' && handleChatSubmit());
+            checkEventsBtn.addEventListener('click', handleCheckEvents);
+
+            // --- Autenticação e Carregamento de Dados ---
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    userId = user.uid;
+                    isAuthReady = true;
+                    // Se uma imagem já foi selecionada, habilita o botão de análise agora
+                    if (imageInput.files.length > 0) {
+                        analyzeImageBtn.disabled = false;
+                    }
+                    listenForGalleryUpdates();
+                } else {
+                    isAuthReady = false;
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        signInWithCustomToken(auth, __initial_auth_token).catch(console.error);
+                    } else {
+                        signInAnonymously(auth).catch(console.error);
+                    }
+                }
+            });
+
+
+            // --- Funções Auxiliares ---
+            async function callApiWithRetries(apiUrl, payload) {
+                let response;
+                let attempts = 0;
+                const maxAttempts = 5;
+                let delay = 1000;
+                
+                while (attempts < maxAttempts) {
+                    try {
+                        response = await fetch(`${apiUrl}?key=${GEMINI_API_KEY}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (response.ok) return response.json();
+                        if (response.status === 429 || response.status >= 500) {
+                            attempts++;
+                            if (attempts >= maxAttempts) throw new Error(`API request failed after ${maxAttempts} attempts with status: ${response.status}`);
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            delay *= 2;
+                        } else {
+                            throw new Error(`API request failed with status: ${response.status}`);
+                        }
+                    } catch (error) {
+                        attempts++;
+                        if (attempts >= maxAttempts) throw error;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+            }
+
+            // --- Lógica do Roteiro Inteligente ---
+            async function handleGenerateRoute() {
+                const destination = destinationInput.value.trim();
+                if (!destination) {
+                    roteiroResultsDiv.innerHTML = `<p class="text-red-400">Por favor, insira um destino.</p>`;
+                    return;
+                }
+                
+                loaderRoteiro.classList.remove('hidden');
+                roteiroResultsDiv.innerHTML = '';
+                disclaimer.classList.add('hidden');
+                ttsControls.classList.add('hidden');
+                generateRouteBtn.disabled = true;
+                generateRouteBtn.textContent = 'Gerando...';
+
+                try {
+                    const prompt = `Partindo de São Paulo, crie um roteiro de viagem de carro para ${destination}. Sugira 3 paradas interessantes no caminho. Para cada parada, forneça o nome, o tipo (ex: Restaurante, Mirante, Ponto Turístico) e uma descrição curta e atrativa de até 2 frases.`;
+                    const payload = {
+                        contents: [{ role: "user", parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            responseMimeType: "application/json",
+                            responseSchema: {
+                                type: "OBJECT",
+                                properties: {
+                                    "paradas": {
+                                        type: "ARRAY",
+                                        items: {
+                                            type: "OBJECT",
+                                            properties: { "nome": { "type": "STRING" }, "tipo": { "type": "STRING" }, "descricao": { "type": "STRING" } },
+                                            required: ["nome", "tipo", "descricao"]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+                    
+                    const result = await callApiWithRetries(apiUrl, payload);
+
+                    if (result.candidates?.[0]?.content?.parts?.[0]) {
+                        const parsedJson = JSON.parse(result.candidates[0].content.parts[0].text);
+                        displayRouteResults(parsedJson.paradas);
+                    } else {
+                        roteiroResultsDiv.innerHTML = `<p class="text-gray-400">Não foi possível gerar sugestões. Tente outro destino.</p>`;
+                    }
+                } catch (error) {
+                    console.error('Error calling Gemini API for route:', error);
+                    roteiroResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao gerar o roteiro. Tente novamente.</p>`;
+                } finally {
+                    loaderRoteiro.classList.add('hidden');
+                    generateRouteBtn.disabled = false;
+                    generateRouteBtn.textContent = 'Gerar Roteiro';
+                }
+            }
+
+            function displayRouteResults(stops) {
+                if (!stops || stops.length === 0) {
+                    roteiroResultsDiv.innerHTML = `<p class="text-gray-400">Nenhuma parada encontrada.</p>`;
+                    return;
+                }
+                currentItineraryText = `Seu roteiro para ${destinationInput.value.trim()} inclui as seguintes paradas: ` + stops.map(stop => `${stop.nome}. ${stop.descricao}`).join(' ');
+                
+                const stopsHtml = stops.map(stop => `
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mb-4 animate-fade-in">
+                        <div class="flex items-center mb-2">
+                            <span class="inline-block bg-yellow-400 text-black text-xs font-bold mr-3 px-2.5 py-0.5 rounded-full">${stop.tipo || 'Parada'}</span>
+                            <h4 class="text-xl font-bold text-white">${stop.nome || 'Nome Indisponível'}</h4>
+                        </div>
+                        <p class="text-gray-300">${stop.descricao || 'Descrição não disponível.'}</p>
+                    </div>
+                `).join('');
+
+                roteiroResultsDiv.innerHTML = stopsHtml;
+                disclaimer.classList.remove('hidden');
+                ttsControls.classList.remove('hidden');
+            }
+            
+            // --- Lógica do Gerador de Alerta ---
+            async function handleGenerateAlert() {
+                const alertText = alertInput.value.trim();
+                const alertTone = alertToneSelect.value;
+                if (!alertText) {
+                    alertaResultsDiv.innerHTML = `<p class="text-red-400">Por favor, insira a informação do alerta.</p>`;
+                    return;
+                }
+                
+                loaderAlerta.classList.remove('hidden');
+                alertaResultsDiv.innerHTML = '';
+                generateAlertBtn.disabled = true;
+                generateAlertBtn.textContent = 'Gerando...';
+
+                try {
+                    const prompt = `Você é um assistente para motoristas na rede social Smart Mob. Transforme o seguinte alerta de trânsito simples em uma postagem criativa e útil para a comunidade, usando um tom ${alertTone}. O alerta é: "${alertText}". Mantenha a postagem curta, direta e adicione um emoji relevante.`;
+                    const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+
+                    const result = await callApiWithRetries(apiUrl, payload);
+
+                    if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                        displayAlertResult(result.candidates[0].content.parts[0].text);
+                    } else {
+                        alertaResultsDiv.innerHTML = `<p class="text-gray-400">Não foi possível gerar o alerta. Tente novamente.</p>`;
+                    }
+                } catch (error) {
+                    console.error('Error calling Gemini API for alert:', error);
+                    alertaResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao gerar o alerta. Tente novamente.</p>`;
+                } finally {
+                    loaderAlerta.classList.add('hidden');
+                    generateAlertBtn.disabled = false;
+                    generateAlertBtn.textContent = 'Gerar Alerta Criativo';
+                }
+            }
+
+            function displayAlertResult(text) {
+                alertaResultsDiv.innerHTML = `
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">
+                        <h4 class="text-lg font-semibold text-white mb-3">Sugestão de Postagem:</h4>
+                        <p class="text-gray-300 whitespace-pre-wrap">${text}</p>
+                    </div>`;
+            }
+
+            // --- Lógica do Leitor de Rota (TTS) ---
+            async function handlePlayTTS() {
+                if (!currentItineraryText) return;
+
+                loaderTts.classList.remove('hidden');
+                playTtsBtn.disabled = true;
+
+                try {
+                    const payload = {
+                        contents: [{ parts: [{ text: `Diga com uma voz amigável e clara: ${currentItineraryText}` }] }],
+                        generationConfig: {
+                            responseModalities: ["AUDIO"],
+                            speechConfig: { speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Puck" } } } }
+                        },
+                        model: "gemini-2.5-flash-preview-tts"
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent`;
+                    
+                    const result = await callApiWithRetries(apiUrl, payload);
+
+                    const audioData = result?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+                    const mimeType = result?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.mimeType;
+
+                    if (audioData && mimeType?.startsWith("audio/")) {
+                        const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)?.[1] || '24000', 10);
+                        const pcmData = base64ToArrayBuffer(audioData);
+                        const pcm16 = new Int16Array(pcmData);
+                        const wavBlob = pcmToWav(pcm16, sampleRate);
+                        const audioUrl = URL.createObjectURL(wavBlob);
+                        
+                        audioPlayer.src = audioUrl;
+                        audioPlayer.play();
+                    } else {
+                        throw new Error('Resposta de áudio inválida da API.');
+                    }
+                } catch (error) {
+                    console.error('Error calling TTS API:', error);
+                    alert('Não foi possível reproduzir o áudio. Tente novamente.');
+                } finally {
+                    loaderTts.classList.add('hidden');
+                    playTtsBtn.disabled = false;
+                }
+            }
+
+            // --- Lógica da Calculadora de Rota ---
+            function handleGetLocation() {
+                if (navigator.geolocation) {
+                    startInput.value = "Obtendo localização...";
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const lat = position.coords.latitude;
+                            const lon = position.coords.longitude;
+                            startInput.value = `Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)}`;
+                        },
+                        (error) => {
+                            let errorMessage = "Não foi possível obter a localização. ";
+                            switch(error.code) {
+                                case error.PERMISSION_DENIED:
+                                    errorMessage += "Você negou a permissão.";
+                                    break;
+                                case error.POSITION_UNAVAILABLE:
+                                    errorMessage += "A informação de localização não está disponível.";
+                                    break;
+                                case error.TIMEOUT:
+                                    errorMessage += "A requisição expirou.";
+                                    break;
+                                default:
+                                    errorMessage += "Ocorreu um erro desconhecido.";
+                                    break;
+                            }
+                            startInput.value = "";
+                            rotaResultsDiv.innerHTML = `<p class="text-red-400">${errorMessage}</p>`;
+                        }
+                    );
+                } else {
+                    rotaResultsDiv.innerHTML = `<p class="text-red-400">Geolocalização não é suportada por este navegador.</p>`;
+                }
+            }
+
+            async function handleCalculateRoute() {
+                const startLocation = startInput.value.trim();
+                const endLocation = endInput.value.trim();
+
+                if (!startLocation || !endLocation) {
+                    rotaResultsDiv.innerHTML = `<p class="text-red-400">Por favor, preencha os locais de partida e destino.</p>`;
+                    return;
+                }
+
+                loaderRota.classList.remove('hidden');
+                rotaResultsDiv.innerHTML = '';
+                calculateRouteBtn.disabled = true;
+                calculateRouteBtn.textContent = 'Calculando...';
+
+                try {
+                    const prompt = `Aja como um sistema de GPS avançado. Considerando que agora é sexta-feira à noite, calcule a rota de carro mais eficiente de "${startLocation}" para "${endLocation}". Leve em conta possíveis condições de trânsito para este horário. Forneça a distância total em km, o tempo estimado de viagem, um resumo da rota e as principais instruções em uma lista passo a passo.`;
+                    const payload = {
+                        contents: [{ role: "user", parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            responseMimeType: "application/json",
+                            responseSchema: {
+                                type: "OBJECT",
+                                properties: {
+                                    "distancia": { "type": "STRING" },
+                                    "tempoEstimado": { "type": "STRING" },
+                                    "resumoRota": { "type": "STRING" },
+                                    "instrucoes": { "type": "ARRAY", "items": { "type": "STRING" } }
+                                },
+                                required: ["distancia", "tempoEstimado", "resumoRota", "instrucoes"]
+                            }
+                        }
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+
+                    const result = await callApiWithRetries(apiUrl, payload);
+
+                    if (result.candidates?.[0]?.content?.parts?.[0]) {
+                        const parsedJson = JSON.parse(result.candidates[0].content.parts[0].text);
+                        displayRouteCalculationResults(parsedJson, endLocation);
+                    } else {
+                        rotaResultsDiv.innerHTML = `<p class="text-gray-400">Não foi possível calcular a rota. Verifique os locais e tente novamente.</p>`;
+                    }
+                } catch (error) {
+                    console.error('Error calling Gemini API for route calculation:', error);
+                    rotaResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao calcular a rota. Tente novamente.</p>`;
+                } finally {
+                    loaderRota.classList.add('hidden');
+                    calculateRouteBtn.disabled = false;
+                    calculateRouteBtn.textContent = 'Calcular Rota Eficiente';
+                }
+            }
+
+            function displayRouteCalculationResults(data, destination) {
+                const instructionsHtml = data.instrucoes.map((step, index) => `
+                    <li class="flex items-start gap-4">
+                        <span class="flex-shrink-0 bg-gray-700 text-yellow-400 rounded-full h-8 w-8 flex items-center justify-center font-bold">${index + 1}</span>
+                        <p class="pt-1">${step}</p>
+                    </li>
+                `).join('');
+
+                const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(destination)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
+                rotaResultsDiv.innerHTML = `
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">
+                        <div class="grid grid-cols-2 gap-4 mb-6 text-center">
+                            <div>
+                                <p class="text-sm text-gray-400">Distância Total</p>
+                                <p class="text-2xl font-bold text-white">${data.distancia}</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Tempo Estimado</p>
+                                <p class="text-2xl font-bold text-white">${data.tempoEstimado}</p>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-2">Resumo da Rota</h4>
+                            <p class="text-gray-300">${data.resumoRota}</p>
+                        </div>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-4">Instruções</h4>
+                            <ul class="space-y-4">${instructionsHtml}</ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-white mb-4">Mapa do Destino</h4>
+                            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border border-gray-700">
+                                <iframe
+                                    src="${mapUrl}"
+                                    width="100%"
+                                    height="450"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+            // --- Lógica do Verificador de Segurança ---
+            async function handleVehicleCheck() {
+                const problemDescription = vehicleProblemInput.value.trim();
+                if (!problemDescription) {
+                    vehicleResultsDiv.innerHTML = `<p class="text-red-400">Por favor, descreva o problema do veículo.</p>`;
+                    return;
+                }
+
+                loaderVehicle.classList.remove('hidden');
+                vehicleResultsDiv.innerHTML = '';
+                checkVehicleBtn.disabled = true;
+                checkVehicleBtn.textContent = 'Verificando...';
+
+                try {
+                    const prompt = `Aja como um mecânico experiente e prestativo. Um motorista descreveu o seguinte problema em seu carro: "${problemDescription}". Forneça uma análise preliminar com: 1. Uma lista de 3 possíveis causas. 2. Uma lista de 2 coisas simples que o motorista pode verificar (se aplicável, caso contrário, diga para não tentar reparos). 3. Um nível de urgência claro (Baixa, Média, ou Alta - procure um mecânico imediatamente) e uma breve justificativa.`;
+                    const payload = {
+                        contents: [{ role: "user", parts: [{ text: prompt }] }],
+                        generationConfig: {
+                            responseMimeType: "application/json",
+                            responseSchema: {
+                                type: "OBJECT",
+                                properties: {
+                                    "causasProvaveis": { "type": "ARRAY", "items": { "type": "STRING" } },
+                                    "verificacoesSimples": { "type": "ARRAY", "items": { "type": "STRING" } },
+                                    "nivelDeUrgencia": { "type": "STRING" },
+                                    "justificativaUrgencia": { "type": "STRING" }
+                                },
+                                required: ["causasProvaveis", "verificacoesSimples", "nivelDeUrgencia", "justificativaUrgencia"]
+                            }
+                        }
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+
+                    const result = await callApiWithRetries(apiUrl, payload);
+
+                    if (result.candidates?.[0]?.content?.parts?.[0]) {
+                        const parsedJson = JSON.parse(result.candidates[0].content.parts[0].text);
+                        displayVehicleCheckResults(parsedJson);
+                    } else {
+                        vehicleResultsDiv.innerHTML = `<p class="text-gray-400">Não foi possível analisar o problema. Tente descrevê-lo de outra forma.</p>`;
+                    }
+                } catch (error) {
+                    console.error('Error calling Gemini API for vehicle check:', error);
+                    vehicleResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao analisar o problema. Tente novamente.</p>`;
+                } finally {
+                    loaderVehicle.classList.add('hidden');
+                    checkVehicleBtn.disabled = false;
+                    checkVehicleBtn.textContent = 'Verificar Problema';
+                }
+            }
+
+            function displayVehicleCheckResults(data) {
+                const urgencyColors = {
+                    'Baixa': 'bg-green-500 text-green-900',
+                    'Média': 'bg-yellow-400 text-yellow-900',
+                    'Alta - procure um mecânico imediatamente': 'bg-red-500 text-white'
+                };
+                const urgencyClass = urgencyColors[data.nivelDeUrgencia] || 'bg-gray-500 text-white';
+
+                const causesHtml = data.causasProvaveis.map(item => `<li>- ${item}</li>`).join('');
+                const checksHtml = data.verificacoesSimples.map(item => `<li>- ${item}</li>`).join('');
+
+                vehicleResultsDiv.innerHTML = `
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-2">Nível de Urgência</h4>
+                            <p class="px-3 py-1 rounded-full inline-block text-base font-bold ${urgencyClass}">${data.nivelDeUrgencia}</p>
+                            <p class="text-gray-400 mt-2 text-sm">${data.justificativaUrgencia}</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Causas Prováveis</h4>
+                                <ul class="space-y-2 text-gray-300 list-inside">${causesHtml}</ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Verificações Simples</h4>
+                                <ul class="space-y-2 text-gray-300 list-inside">${checksHtml}</ul>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-6 pt-4 border-t border-gray-700">Atenção: Este é um diagnóstico preliminar gerado por IA e não substitui a avaliação de um mecânico profissional.</p>
+                    </div>`;
+            }
+
+            // --- Lógica do Analisador de Imagem ---
+            function handleImageSelection(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    imageInputText.textContent = file.name;
+                    analyzeImageBtn.disabled = false;
+                } else {
+                    imageInputText.textContent = 'Clique para escolher uma imagem';
+                    analyzeImageBtn.disabled = true;
+                }
+            }
+
+            async function handleImageAnalysis() {
+                const file = imageInput.files[0];
+                if (!file) {
+                    imageResultsDiv.innerHTML = `<p class="text-red-400">Por favor, selecione uma imagem primeiro.</p>`;
+                    return;
+                }
+
+                loaderImage.classList.remove('hidden');
+                imageResultsDiv.innerHTML = '';
+                analyzeImageBtn.disabled = true;
+                analyzeImageBtn.textContent = 'Analisando...';
+
+                try {
+                    const base64ImageData = await fileToBase64(file);
+                    const prompt = "Descreva esta imagem da perspectiva de um motorista em no máximo 5 linhas. O que é importante notar sobre esta cena de trânsito ou estrada?";
+                    
+                    const payload = {
+                        contents: [{
+                            role: "user",
+                            parts: [
+                                { text: prompt },
+                                { inlineData: { mimeType: file.type, data: base64ImageData } }
+                            ]
+                        }]
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+
+                    const result = await callApiWithRetries(apiUrl, payload);
+                    const analysisText = result.candidates?.[0]?.content?.parts?.[0]?.text || "Não foi possível analisar a imagem.";
+
+                    displayImageAnalysisResult(analysisText, URL.createObjectURL(file));
+
+                } catch (error) {
+                    console.error('Error calling Gemini API for image analysis:', error);
+                    imageResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao analisar a imagem. Verifique sua chave de API e tente novamente.</p>`;
+                } finally {
+                    loaderImage.classList.add('hidden');
+                    analyzeImageBtn.disabled = false;
+                    analyzeImageBtn.textContent = 'Analisar Imagem';
+                }
+            }
+
+            function displayImageAnalysisResult(text, imageUrl) {
+                imageResultsDiv.innerHTML = `
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">
+                        <img src="${imageUrl}" alt="Imagem enviada" class="rounded-lg mb-4 max-h-64 mx-auto" />
+                        <h4 class="text-lg font-semibold text-white mb-3">Análise da Imagem:</h4>
+                        <p class="text-gray-300">${text}</p>
+                    </div>`;
+            }
+
+            function fileToBase64(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = () => resolve(reader.result.split(',')[1]);
+                    reader.onerror = error => reject(error);
+                });
+            }
+
+            // --- Lógica do Chat Assistente ---
+            async function handleChatSubmit() {
+                const userMessage = chatInput.value.trim();
+                if (!userMessage) return;
+
+                appendMessage(userMessage, 'user');
+                chatInput.value = '';
+                sendChatBtn.disabled = true;
+                
+                const loaderId = 'loader-' + Date.now();
+                appendMessage('', 'model', true, loaderId);
+
+                try {
+                    const systemPrompt = `Você é um assistente prestativo e amigável para o Smart Mob, um aplicativo de GPS social e inteligente para motoristas. Sua função é responder a perguntas sobre o Smart Mob e dar dicas gerais de viagem. Seja conciso e direto.`;
+                    
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                    const payload = { 
+                        contents: chatHistory,
+                        systemInstruction: {
+                            parts: [{ text: systemPrompt }]
+                        }
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+
+                    const result = await callApiWithRetries(apiUrl, payload);
+
+                    let aiResponse = "Desculpe, não consegui encontrar uma resposta. Pode tentar perguntar de outra forma?";
+                    if (result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                        aiResponse = result.candidates[0].content.parts[0].text;
+                    }
+                    
+                    chatHistory.push({ role: "model", parts: [{ text: aiResponse }] });
+                    updateMessage(loaderId, aiResponse);
+
+                } catch (error) {
+                    console.error('Error in chat:', error);
+                    updateMessage(loaderId, "Ocorreu um erro. Por favor, tente novamente.");
+                } finally {
+                    sendChatBtn.disabled = false;
+                }
+            }
+
+            function appendMessage(text, role, isLoading = false, id = '') {
+                const messageWrapper = document.createElement('div');
+                const messageBubble = document.createElement('div');
+                
+                messageWrapper.classList.add('flex', role === 'user' ? 'justify-end' : 'justify-start');
+                messageBubble.classList.add('p-3', 'rounded-lg', 'max-w-xs', 'animate-fade-in');
+                
+                if (role === 'user') {
+                    messageBubble.classList.add('bg-yellow-400', 'text-black');
+                } else {
+                    messageBubble.classList.add('bg-gray-700', 'text-white');
+                }
+
+                if (isLoading) {
+                    messageBubble.id = id;
+                    const loader = document.createElement('div');
+                    loader.classList.add('loader', 'w-5', 'h-5');
+                    loader.style.borderWidth = '2px';
+                    messageBubble.appendChild(loader);
+                } else {
+                    messageBubble.textContent = text;
+                }
+                
+                messageWrapper.appendChild(messageBubble);
+                chatWindow.appendChild(messageWrapper);
+                chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll
+            }
+
+            function updateMessage(id, newText) {
+                const messageBubble = document.getElementById(id);
+                if (messageBubble) {
+                    messageBubble.innerHTML = ''; // Remove loader
+                    messageBubble.textContent = newText;
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                }
+            }
+
+            // --- Lógica do Verificador de Eventos ---
+            async function handleCheckEvents() {
+                const start = eventStartInput.value.trim();
+                const end = eventEndInput.value.trim();
+                if (!start || !end) {
+                    eventResultsDiv.innerHTML = `<p class="text-red-400">Por favor, preencha os locais de partida e destino.</p>`;
+                    return;
+                }
+
+                loaderEvent.classList.remove('hidden');
+                eventResultsDiv.innerHTML = '';
+                checkEventsBtn.disabled = true;
+                checkEventsBtn.textContent = 'Verificando...';
+
+                try {
+                    const userQuery = `Encontre notícias recentes, eventos, acidentes ou interdições de via para uma viagem de carro entre ${start} e ${end}. Resuma os 3 achados mais relevantes, se houver. Se nada for encontrado, informe que a rota parece estar livre de grandes eventos reportados.`;
+                    const payload = {
+                        contents: [{ parts: [{ text: userQuery }] }],
+                        tools: [{ "google_search": {} }],
+                    };
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
+
+                    const result = await callApiWithRetries(apiUrl, payload);
+                    
+                    const candidate = result.candidates?.[0];
+                    const text = candidate?.content?.parts?.[0]?.text;
+                    let sources = [];
+                    const groundingMetadata = candidate?.groundingMetadata;
+                    if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                        sources = groundingMetadata.groundingAttributions
+                            .map(attr => ({ uri: attr.web?.uri, title: attr.web?.title }))
+                            .filter(source => source.uri && source.title);
+                    }
+                    
+                    displayEventCheckResults(text, sources);
+
+                } catch (error) {
+                    console.error('Error calling Gemini API for event check:', error);
+                    eventResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao verificar os eventos. Tente novamente.</p>`;
+                } finally {
+                    loaderEvent.classList.add('hidden');
+                    checkEventsBtn.disabled = false;
+                    checkEventsBtn.textContent = 'Verificar Eventos na Rota';
+                }
+            }
+
+            function displayEventCheckResults(summary, sources) {
+                if (!summary) {
+                    eventResultsDiv.innerHTML = `<p class="text-gray-400">Não foi possível verificar os eventos. Tente novamente.</p>`;
+                    return;
+                }
+
+                let sourcesHtml = '';
+                if (sources && sources.length > 0) {
+                    const uniqueSources = [...new Map(sources.map(item => [item.uri, item])).values()];
+                    sourcesHtml = `
+                        <h4 class="text-lg font-semibold text-white mt-6 mb-3">Fontes:</h4>
+                        <ul class="space-y-2 text-sm">
+                            ${uniqueSources.map(source => `
+                                <li>
+                                    <a href="${source.uri}" target="_blank" rel="noopener noreferrer" class="text-yellow-400 hover:underline">${source.title}</a>
+                                </li>
+                            `).join('')}
+                        </ul>`;
+                }
+
+                eventResultsDiv.innerHTML = `
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">
+                        <h4 class="text-lg font-semibold text-white mb-3">Resumo da Verificação:</h4>
+                        <p class="text-gray-300 whitespace-pre-wrap">${summary}</p>
+                        ${sourcesHtml}
+                    </div>`;
+            }
+            
+            // --- Lógica da Galeria (Removida, pois não há mais persistência) ---
+            function listenForGalleryUpdates() {
+                 galleryContainer.innerHTML = `<p class="text-gray-500 col-span-full text-center">A galeria foi desativada nesta versão para simplificar a demonstração.</p>`;
+            }
+            
+            // --- Funções de Conversão de Áudio ---
+            function base64ToArrayBuffer(base64) {
+                const binaryString = window.atob(base64);
+                const len = binaryString.length;
+                const bytes = new Uint8Array(len);
+                for (let i = 0; i < len; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                return bytes.buffer;
+            }
+
+            function pcmToWav(pcmData, sampleRate) {
+                const numChannels = 1;
+                const bitsPerSample = 16;
+                const byteRate = sampleRate * numChannels * (bitsPerSample / 8);
+                const blockAlign = numChannels * (bitsPerSample / 8);
+                const dataSize = pcmData.length * (bitsPerSample / 8);
+                const buffer = new ArrayBuffer(44 + dataSize);
+                const view = new DataView(buffer);
+
+                writeString(view, 0, 'RIFF');
+                view.setUint32(4, 36 + dataSize, true);
+                writeString(view, 8, 'WAVE');
+                writeString(view, 12, 'fmt ');
+                view.setUint32(16, 16, true);
+                view.setUint16(20, 1, true);
+                view.setUint16(22, numChannels, true);
+                view.setUint32(24, sampleRate, true);
+                view.setUint32(28, byteRate, true);
+                view.setUint16(32, blockAlign, true);
+                view.setUint16(34, bitsPerSample, true);
+                writeString(view, 36, 'data');
+                view.setUint32(40, dataSize, true);
+
+                for (let i = 0; i < pcmData.length; i++) {
+                    view.setInt16(44 + i * 2, pcmData[i], true);
+                }
+
+                return new Blob([view], { type: 'audio/wav' });
+            }
+
+            function writeString(view, offset, string) {
+                for (let i = 0; i < string.length; i++) {
+                    view.setUint8(offset + i, string.charCodeAt(i));
+                }
+            }
+        });
+    </script>
+</body>
+</html>
