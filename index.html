@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Mob — Motoristas conectados, rodovias inteligentes</title>
+    <title>RoadFeed — Motoristas conectados, rodovias inteligentes</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -79,7 +79,7 @@
             <div class="flex items-center space-x-2">
                 <!-- Logo SVG -->
                 <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h1 class="text-2xl font-bold text-white">Smart Mob</h1>
+                <h1 class="text-2xl font-bold text-white">RoadFeed</h1>
             </div>
             <nav class="hidden md:flex space-x-6 text-gray-300 font-medium">
                 <a href="#sobre" class="hover:text-yellow-400 transition-colors">Sobre</a>
@@ -104,25 +104,25 @@
                     <p class="text-lg text-gray-300 mb-8">
                         A rede social rodoviária com GPS inteligente que transforma sua viagem.
                     </p>
-                    <a href="#cta-final" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button inline-block">
+                    <a href="index.html" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button inline-block">
                         Quero experimentar
                     </a>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <img src="https://placehold.co/450x550/374151/FFFFFF?text=App+Mockup" 
-                         onerror="this.onerror=null;this.src='https://placehold.co/450x550/374151/FFFFFF?text=Erro+ao+carregar+imagem';"
-                         alt="Mockup do aplicativo Smart Mob em um celular mostrando mapa e feed de postagens" 
-                         class="rounded-2xl shadow-2xl w-full max-w-sm">
+                    <img src="https://i.imgur.com/7ZQZ1Yc.png" 
+                         onerror="this.onerror=null;this.src='https://placehold.co/450x450/374151/FFFFFF?text=Logo';"
+                         alt="Logo do RoadFeed" 
+                         class="rounded-full shadow-2xl w-full max-w-sm">
                 </div>
             </div>
         </section>
 
-        <!-- 2. Sobre o Smart Mob -->
+        <!-- 2. Sobre o RoadFeed -->
         <section id="sobre" class="py-20 bg-black">
             <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl font-bold text-white mb-4">O que é o Smart Mob?</h3>
+                <h3 class="text-3xl font-bold text-white mb-4">O que é o RoadFeed?</h3>
                 <p class="max-w-3xl mx-auto text-gray-400 text-lg">
-                    O Smart Mob é um sistema de navegação inteligente com GPS em tempo real e um feed colaborativo estilo rede social, onde motoristas podem compartilhar alertas, fotos e vídeos sobre as condições das rodovias, criando uma comunidade que se ajuda mutuamente.
+                    O RoadFeed é um sistema de navegação inteligente com GPS em tempo real e um feed colaborativo estilo rede social, onde motoristas podem compartilhar alertas, fotos e vídeos sobre as condições das rodovias, criando uma comunidade que se ajuda mutuamente.
                 </p>
             </div>
         </section>
@@ -227,7 +227,7 @@
                     <!-- Conteúdo Gerador de Alerta -->
                     <div id="alerta-ia-content" class="tab-content hidden">
                          <p class="max-w-2xl mx-auto text-gray-400 mb-8">
-                           Transforme uma informação simples em um post útil e criativo para a comunidade Smart Mob.
+                           Transforme uma informação simples em um post útil e criativo para a comunidade RoadFeed.
                         </p>
                         <div class="max-w-xl mx-auto">
                             <div class="flex flex-col gap-4">
@@ -299,7 +299,7 @@
                                 <label for="image-input" class="w-full p-4 rounded-lg bg-gray-800 border-2 border-dashed border-gray-600 text-gray-400 text-center file-input-label transition">
                                     <span id="image-input-text">Clique para escolher uma imagem</span>
                                 </label>
-                                <input id="image-input" type="file" class="hidden" accept="image/*">
+                                <input id="image-input" type="file" class="hidden" accept="image/*">                               
                                 <button id="analyze-image-btn" class="bg-yellow-400 text-black font-bold px-8 py-4 rounded-lg text-lg hover:bg-yellow-500 cta-button whitespace-nowrap w-full sm:w-auto" disabled>
                                     Analisar Imagem
                                 </button>
@@ -317,10 +317,9 @@
                         </p>
                         <div class="max-w-2xl mx-auto bg-gray-800 rounded-lg border border-gray-700">
                             <div id="chat-window" class="p-4 chat-container flex flex-col gap-4">
-                                <!-- Mensagens do chat aparecerão aqui -->
                                 <div class="flex justify-start">
                                     <div class="bg-gray-700 text-white p-3 rounded-lg max-w-xs">
-                                        Olá! Sou o assistente do Smart Mob. Como posso ajudar?
+                                        Olá! Sou o assistente do RoadFeed. Como posso ajudar?
                                     </div>
                                 </div>
                             </div>
@@ -365,7 +364,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Testemunho 1 -->
                     <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 shadow-sm">
-                        <p class="text-gray-300 mb-6 italic">"O Smart Mob mudou a forma como planejo minhas rotas. Os alertas em tempo real da comunidade são incrivelmente precisos!"</p>
+                        <p class="text-gray-300 mb-6 italic">"O RoadFeed mudou a forma como planejo minhas rotas. Os alertas em tempo real da comunidade são incrivelmente precisos!"</p>
                         <div class="flex items-center">
                             <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/374151/FFFFFF?text=C" alt="Foto de Carlos S.">
                             <div>
@@ -405,17 +404,17 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h3 class="text-3xl font-bold text-white">Perguntas Frequentes</h3>
-                    <p class="text-gray-400 mt-2">Tirando suas principais dúvidas sobre o Smart Mob.</p>
+                    <p class="text-gray-400 mt-2">Tirando suas principais dúvidas sobre o RoadFeed.</p>
                 </div>
                 <div class="max-w-3xl mx-auto space-y-4">
                     <!-- Item FAQ 1 -->
                     <div class="bg-gray-800 rounded-lg border border-gray-700">
                         <button class="faq-question w-full flex justify-between items-center text-left p-6 font-semibold text-lg text-white hover:bg-gray-700">
-                            <span>O Smart Mob será gratuito?</span>
+                            <span>O RoadFeed será gratuito?</span>
                             <svg class="faq-arrow w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p class="p-6 pt-0 text-gray-400">Sim! As funcionalidades principais do Smart Mob, como navegação por GPS e participação no feed colaborativo, serão sempre gratuitas para os motoristas.</p>
+                            <p class="p-6 pt-0 text-gray-400">Sim! As funcionalidades principais do RoadFeed, como navegação por GPS e participação no feed colaborativo, serão sempre gratuitas para os motoristas.</p>
                         </div>
                     </div>
                     <!-- Item FAQ 2 -->
@@ -435,9 +434,9 @@
         <!-- Chamada para Ação (CTA final) -->
         <section id="cta-final" class="bg-yellow-400 text-black">
             <div class="container mx-auto px-6 py-20 text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">Quer ser um dos primeiros a testar o Smart Mob?</h3>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Quer ser um dos primeiros a testar o RoadFeed?</h3>
                 <p class="text-gray-800 text-lg mb-8">Junte-se ao nosso programa piloto e ajude a construir o futuro da mobilidade rodoviária.</p>
-                <a href="#" class="bg-black text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-800 cta-button inline-block">
+                <a href="index.html" class="bg-black text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-800 cta-button inline-block">
                     Cadastre-se para o piloto
                 </a>
             </div>
@@ -449,7 +448,7 @@
         <div class="container mx-auto px-6 py-10">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="mb-6 md:mb-0">
-                    <h4 class="text-xl font-bold text-white">Smart Mob</h4>
+                    <h4 class="text-xl font-bold text-white">RoadFeed</h4>
                     <p class="text-sm">Conectando motoristas, otimizando rotas.</p>
                 </div>
                 <div class="flex space-x-6 mb-6 md:mb-0">
@@ -464,57 +463,21 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
-                <p>&copy; 2025 SmartFeed. Todos os direitos reservados.</p>
+                <p>&copy; 2024 RoadFeed. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
     
     <audio id="audio-player" class="hidden"></audio>
 
-    <!-- Scripts -->
-    <script type="module">
-        // Import Firebase services
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
-
+    <script>   
+        const GEMINI_API_KEY = "AIzaSyC9TtwVKz0MNeqb-ojbeUrMOWOQR8YaYXM"; // COLE SUA CHAVE DA API DO GOOGLE AI STUDIO AQUI
+    </script>
+    <script>
         // Variáveis globais
         let currentItineraryText = '';
         let chatHistory = [];
-        let isAuthReady = false;
-
-        // --- CHECKLIST DE CONFIGURAÇÃO PARA TESTE LOCAL ---
-        // 1. Chave da API Gemini: Obtenha no Google AI Studio e cole abaixo.
-        // 2. Configuração do Firebase: Crie um projeto no Firebase, ative Authentication, Firestore e Storage.
-        //    Vá em "Configurações do Projeto" e copie o objeto de configuração.
-        // 3. Regras do Firebase:
-        //    - Firestore: Permita leitura e escrita para usuários autenticados na coleção correta.
-        //    - Storage: Permita leitura e escrita para usuários autenticados no caminho de imagens.
-        //    (Exemplos de regras estão nos comentários do código da galeria e do upload de imagem).
-        // 4. Ative as APIs no Google Cloud: No seu projeto, ative "Generative Language API" e "Identity Toolkit API" (para o Auth).
-        // 5. Faturamento: Associe uma conta de faturamento ao seu projeto no Google Cloud (há um nível gratuito generoso).
-
-        const GEMINI_API_KEY = "AIzaSyB61n_-BSNpavD9sMxxJTVtFfB4VhvGs4Q"; // COLE SUA CHAVE DA API DO GOOGLE AI STUDIO AQUI
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
-            // COLE AQUI A CONFIGURAÇÃO DO SEU PROJETO FIREBASE
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_PROJECT_ID.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-
-        // Inicializa o Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const storage = getStorage(app);
-        let userId = null;
-
-
+        
         // Script para FAQ e Abas de IA
         document.addEventListener('DOMContentLoaded', () => {
             // Lógica do FAQ
@@ -605,10 +568,6 @@
             const eventResultsDiv = document.getElementById('event-results');
             const loaderEvent = document.getElementById('loader-event');
 
-            // Elementos da Galeria
-            const galleryContainer = document.getElementById('gallery-container');
-
-
             // Event Listeners
             generateRouteBtn.addEventListener('click', handleGenerateRoute);
             destinationInput.addEventListener('keyup', (e) => e.key === 'Enter' && handleGenerateRoute());
@@ -623,27 +582,6 @@
             sendChatBtn.addEventListener('click', handleChatSubmit);
             chatInput.addEventListener('keyup', (e) => e.key === 'Enter' && handleChatSubmit());
             checkEventsBtn.addEventListener('click', handleCheckEvents);
-
-            // --- Autenticação e Carregamento de Dados ---
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    userId = user.uid;
-                    isAuthReady = true;
-                    // Se uma imagem já foi selecionada, habilita o botão de análise agora
-                    if (imageInput.files.length > 0) {
-                        analyzeImageBtn.disabled = false;
-                    }
-                    listenForGalleryUpdates();
-                } else {
-                    isAuthReady = false;
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        signInWithCustomToken(auth, __initial_auth_token).catch(console.error);
-                    } else {
-                        signInAnonymously(auth).catch(console.error);
-                    }
-                }
-            });
-
 
             // --- Funções Auxiliares ---
             async function callApiWithRetries(apiUrl, payload) {
@@ -694,7 +632,7 @@
                 generateRouteBtn.textContent = 'Gerando...';
 
                 try {
-                    const prompt = `Partindo de São Paulo, crie um roteiro de viagem de carro para ${destination}. Sugira 3 paradas interessantes no caminho. Para cada parada, forneça o nome, o tipo (ex: Restaurante, Mirante, Ponto Turístico) e uma descrição curta e atrativa de até 2 frases.`;
+                    const prompt = `Aja como um planejador de rotas de viagem. Para uma viagem de carro partindo de São Paulo para ${destination}, sugira 3 paradas interessantes que estejam diretamente na rota principal ou exijam um desvio mínimo. Para cada parada, forneça o nome, a cidade e uma descrição curta e atrativa de até 2 frases.`;
                     const payload = {
                         contents: [{ role: "user", parts: [{ text: prompt }] }],
                         generationConfig: {
@@ -706,8 +644,8 @@
                                         type: "ARRAY",
                                         items: {
                                             type: "OBJECT",
-                                            properties: { "nome": { "type": "STRING" }, "tipo": { "type": "STRING" }, "descricao": { "type": "STRING" } },
-                                            required: ["nome", "tipo", "descricao"]
+                                            properties: { "nome": { "type": "STRING" }, "cidade": { "type": "STRING" }, "descricao": { "type": "STRING" } },
+                                            required: ["nome", "cidade", "descricao"]
                                         }
                                     }
                                 }
@@ -744,7 +682,7 @@
                 const stopsHtml = stops.map(stop => `
                     <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mb-4 animate-fade-in">
                         <div class="flex items-center mb-2">
-                            <span class="inline-block bg-yellow-400 text-black text-xs font-bold mr-3 px-2.5 py-0.5 rounded-full">${stop.tipo || 'Parada'}</span>
+                             <span class="inline-block bg-blue-500 text-white text-xs font-bold mr-3 px-2.5 py-0.5 rounded-full">${stop.cidade || 'Local'}</span>
                             <h4 class="text-xl font-bold text-white">${stop.nome || 'Nome Indisponível'}</h4>
                         </div>
                         <p class="text-gray-300">${stop.descricao || 'Descrição não disponível.'}</p>
@@ -771,7 +709,7 @@
                 generateAlertBtn.textContent = 'Gerando...';
 
                 try {
-                    const prompt = `Você é um assistente para motoristas na rede social Smart Mob. Transforme o seguinte alerta de trânsito simples em uma postagem criativa e útil para a comunidade, usando um tom ${alertTone}. O alerta é: "${alertText}". Mantenha a postagem curta, direta e adicione um emoji relevante.`;
+                    const prompt = `Você é um assistente para motoristas na rede social RoadFeed. Transforme o seguinte alerta de trânsito simples em uma postagem criativa e útil para a comunidade, usando um tom ${alertTone}. O alerta é: "${alertText}". Mantenha a postagem curta, direta e adicione um emoji relevante.`;
                     const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent`;
 
@@ -1065,7 +1003,7 @@
             function handleImageSelection(event) {
                 const file = event.target.files[0];
                 if (file) {
-                    imageInputText.textContent = file.name;
+                    imageInputText.textContent = file.name;                   
                     analyzeImageBtn.disabled = false;
                 } else {
                     imageInputText.textContent = 'Clique para escolher uma imagem';
@@ -1073,9 +1011,9 @@
                 }
             }
 
-            async function handleImageAnalysis() {
+            async function handleImageAnalysis() {                
                 const file = imageInput.files[0];
-                if (!file) {
+                 if (!file) {
                     imageResultsDiv.innerHTML = `<p class="text-red-400">Por favor, selecione uma imagem primeiro.</p>`;
                     return;
                 }
@@ -1083,11 +1021,12 @@
                 loaderImage.classList.remove('hidden');
                 imageResultsDiv.innerHTML = '';
                 analyzeImageBtn.disabled = true;
-                analyzeImageBtn.textContent = 'Analisando...';
+                analyzeImageBtn.textContent = 'Analisando...';                
 
                 try {
                     const base64ImageData = await fileToBase64(file);
                     const prompt = "Descreva esta imagem da perspectiva de um motorista em no máximo 5 linhas. O que é importante notar sobre esta cena de trânsito ou estrada?";
+                    const imageUrl = URL.createObjectURL(file); // Cria uma URL local para preview
                     
                     const payload = {
                         contents: [{
@@ -1102,12 +1041,15 @@
 
                     const result = await callApiWithRetries(apiUrl, payload);
                     const analysisText = result.candidates?.[0]?.content?.parts?.[0]?.text || "Não foi possível analisar a imagem.";
-
-                    displayImageAnalysisResult(analysisText, URL.createObjectURL(file));
-
+                                        
+                    displayImageAnalysisResult(analysisText, imageUrl);
                 } catch (error) {
-                    console.error('Error calling Gemini API for image analysis:', error);
-                    imageResultsDiv.innerHTML = `<p class="text-red-400">Ocorreu um erro ao analisar a imagem. Verifique sua chave de API e tente novamente.</p>`;
+                    console.error('Error in image analysis and upload:', error);
+                    let errorMessage = 'Ocorreu um erro no processo. Tente novamente.';
+                    if (error.message && error.message.includes('401')) {
+                        errorMessage = 'Erro de autenticação com a API Gemini. Verifique sua chave de API.';
+                    }
+                    imageResultsDiv.innerHTML = `<p class="text-red-400">${errorMessage}</p>`;
                 } finally {
                     loaderImage.classList.add('hidden');
                     analyzeImageBtn.disabled = false;
@@ -1117,7 +1059,7 @@
 
             function displayImageAnalysisResult(text, imageUrl) {
                 imageResultsDiv.innerHTML = `
-                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">
+                    <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 animate-fade-in">                        
                         <img src="${imageUrl}" alt="Imagem enviada" class="rounded-lg mb-4 max-h-64 mx-auto" />
                         <h4 class="text-lg font-semibold text-white mb-3">Análise da Imagem:</h4>
                         <p class="text-gray-300">${text}</p>
@@ -1146,7 +1088,7 @@
                 appendMessage('', 'model', true, loaderId);
 
                 try {
-                    const systemPrompt = `Você é um assistente prestativo e amigável para o Smart Mob, um aplicativo de GPS social e inteligente para motoristas. Sua função é responder a perguntas sobre o Smart Mob e dar dicas gerais de viagem. Seja conciso e direto.`;
+                    const systemPrompt = `Você é um assistente prestativo e amigável para o RoadFeed, um aplicativo de GPS social e inteligente para motoristas. Sua função é responder a perguntas sobre o RoadFeed e dar dicas gerais de viagem. Seja conciso e direto.`;
                     
                     chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
                     const payload = { 
@@ -1286,11 +1228,6 @@
                     </div>`;
             }
             
-            // --- Lógica da Galeria (Removida, pois não há mais persistência) ---
-            function listenForGalleryUpdates() {
-                 galleryContainer.innerHTML = `<p class="text-gray-500 col-span-full text-center">A galeria foi desativada nesta versão para simplificar a demonstração.</p>`;
-            }
-            
             // --- Funções de Conversão de Áudio ---
             function base64ToArrayBuffer(base64) {
                 const binaryString = window.atob(base64);
@@ -1341,7 +1278,4 @@
     </script>
 </body>
 </html>
-
-
-
 
